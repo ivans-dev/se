@@ -8,9 +8,11 @@ def driver(request):
     request.addfinalizer(wd.quit)
     return wd
 
-def test_yandex(driver):
-    driver.get("https://yandex.ru/")
-    driver.find_element_by_name("text").send_keys("Hello World")
-    driver.find_element_by_xpath("//button[@type='submit']").click()
+
+def test_login(driver):
+    driver.get("http://localhost/litecart/admin/login.php")
+    driver.find_element_by_name("username").send_keys("admin")
+    driver.find_element_by_name("password").send_keys("admin")
+    driver.find_element_by_name("login").click()
     WebDriverWait(driver, 10).until(
         lambda x: driver.execute_script('return document.readyState') == 'complete')
