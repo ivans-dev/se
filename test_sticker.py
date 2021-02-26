@@ -14,16 +14,6 @@ def driver(request):
 
 
 def test_sticker(driver):
-    styles = ('box-most-popular', 'box-campaigns', 'box-latest-products')
-    for style in styles:
-        base_elem = driver.find_element_by_css_selector('#' + style + '> div > ul')
-        all_duck = base_elem.find_elements_by_css_selector('li')
-        i = 1
-        while i <= len(all_duck):
-            all_sticker = base_elem.find_elements_by_css_selector('li:nth-child(' + str(
-                i) + ')> a.link > div.image-wrapper > '                                                                          'div')
-            i += 1
-            ###########################################################
-            #print(style + "  " + str(len(all_sticker))) для проверки #
-            ###########################################################
-            assert len(all_sticker) == 1
+    all_products = driver.find_elements_by_css_selector("li.product")
+    all_stickers = driver.find_elements_by_css_selector("li.product div.sticker")
+    assert len(all_products) == len(all_stickers)
