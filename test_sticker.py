@@ -23,6 +23,7 @@ def test_sticker(driver):
             all_sticker = base_elem.find_elements_by_css_selector('li:nth-child(' + str(
                 i) + ')> a.link > div.image-wrapper > '                                                                          'div')
             i += 1
-
-            #print(style + "  " + str(len(all_sticker))) для проверки
+            ###########################################################
+            #print(style + "  " + str(len(all_sticker))) для проверки #
+            ###########################################################
             assert len(all_sticker) == 1
