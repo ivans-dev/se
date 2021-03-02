@@ -15,5 +15,5 @@ def driver(request):
 
 def test_sticker(driver):
     all_products = driver.find_elements_by_css_selector("li.product")
-    all_stickers = driver.find_elements_by_css_selector("li.product div.sticker")
-    assert len(all_products) == len(all_stickers)
+    for product in all_products:
+        assert len(product.find_elements_by_css_selector("div.sticker")) == 1
