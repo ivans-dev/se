@@ -5,7 +5,7 @@ import re
 
 @pytest.fixture
 def driver(request):
-    wd = webdriver.Firefox(executable_path=r"C:\tools\geckodriver.exe.exe")
+    wd = webdriver.Firefox(executable_path=r"C:\tools\geckodriver.exe")
     request.addfinalizer(wd.quit)
     wd.get("http://localhost/")
     WebDriverWait(wd, 20).until(
