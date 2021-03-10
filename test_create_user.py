@@ -69,7 +69,8 @@ def test_add_users(driver):
     driver.find_element_by_name("city").send_keys(city)
 
 
-
+    # Находим элемент по нужному классу и удаляем класс, что бы элемент стал видимым и можно было с ним работать
+    # Удаление реализовал чз установку аттрибута класс равной пустой строки
     select= driver.find_element_by_class_name("select2-hidden-accessible")
     driver.execute_script("arguments[0].setAttribute('class','')", select)
     Select(select).select_by_visible_text('United States')
